@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TailoredAgile | Build Your SDLC Cart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-b" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">TailoredAgile</p>
+        <h1>Design your own project framework</h1>
+      </div>
+      <button id="cartToggle" class="cart-toggle" aria-label="Open cart">
+        Cart <span id="cartCount">0</span>
+      </button>
+    </header>
+
+    <main class="layout">
+      <section class="catalog">
+        <h2>Methodologies & Practices</h2>
+        <p class="section-lead">
+          Mix and match exactly what your team needs for a bespoke software
+          development lifecycle.
+        </p>
+        <div id="catalogGrid" class="catalog-grid"></div>
+      </section>
+
+      <aside id="cartPanel" class="cart-panel" aria-label="Shopping cart">
+        <div class="cart-header">
+          <h2>Your Framework Cart</h2>
+          <button id="closeCart" class="ghost-btn" aria-label="Close cart">
+            Close
+          </button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-footer">
+          <div class="cart-total-row">
+            <span>Total</span>
+            <strong id="cartTotal">$0</strong>
+          </div>
+          <button id="checkoutBtn" class="checkout-btn">Checkout</button>
+          <p class="tiny-note">
+            Educational storefront demo for composing your process toolkit.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <dialog id="checkoutDialog" class="checkout-dialog">
+      <form method="dialog">
+        <h3>Checkout Summary</h3>
+        <p>Here is your tailored SDLC bundle:</p>
+        <ul id="checkoutSummary"></ul>
+        <p class="checkout-total">
+          Grand Total: <strong id="checkoutTotal">$0</strong>
+        </p>
+        <menu>
+          <button value="cancel" class="ghost-btn">Keep Editing</button>
+          <button id="confirmOrderBtn" value="default" class="checkout-btn">
+            Confirm Purchase
+          </button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>

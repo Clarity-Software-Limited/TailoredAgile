@@ -1,0 +1,373 @@
+:root {
+  --bg: #f8f4ec;
+  --surface: #fffaf1;
+  --ink: #1c1a1a;
+  --muted: #5e5b57;
+  --accent: #005f73;
+  --accent-2: #ee9b00;
+  --stroke: #ddd2be;
+  --danger: #b02a37;
+  --shadow: 0 18px 50px rgba(41, 35, 30, 0.15);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  background: linear-gradient(140deg, #f7f3ea 0%, #f2ebdd 42%, #f8f4ec 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-shape {
+  position: fixed;
+  z-index: -1;
+  border-radius: 999px;
+  filter: blur(50px);
+  opacity: 0.35;
+}
+
+.bg-shape-a {
+  width: 420px;
+  height: 420px;
+  top: -110px;
+  left: -120px;
+  background: #00afb9;
+}
+
+.bg-shape-b {
+  width: 380px;
+  height: 380px;
+  bottom: -120px;
+  right: -80px;
+  background: #f4a261;
+}
+
+.topbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1.1rem 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+  line-height: 1.15;
+}
+
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.6rem 1.1rem 2rem;
+  display: grid;
+  grid-template-columns: 2fr minmax(310px, 1fr);
+  gap: 1.2rem;
+}
+
+.catalog,
+.cart-panel {
+  background: color-mix(in oklab, var(--surface), white 35%);
+  border: 1px solid var(--stroke);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.catalog {
+  padding: 1.35rem;
+}
+
+h2 {
+  margin: 0;
+}
+
+.section-lead {
+  color: var(--muted);
+  margin-top: 0.55rem;
+  max-width: 60ch;
+}
+
+.catalog-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.85rem;
+}
+
+.item-card {
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  padding: 0.95rem;
+  background: #fffdf7;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transform: translateY(10px);
+  opacity: 0;
+  animation: rise-in 0.45s ease forwards;
+}
+
+.item-badge {
+  align-self: flex-start;
+  padding: 0.16rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.item-title {
+  margin: 0;
+  font-size: 1.06rem;
+}
+
+.item-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.item-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.price {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+}
+
+button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.add-btn,
+.checkout-btn,
+.cart-toggle {
+  background: var(--accent);
+  color: white;
+  border-radius: 10px;
+  padding: 0.48rem 0.8rem;
+  font-weight: 600;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.add-btn:hover,
+.checkout-btn:hover,
+.cart-toggle:hover {
+  background: #004b5b;
+  transform: translateY(-1px);
+}
+
+.ghost-btn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--stroke);
+  border-radius: 10px;
+  padding: 0.42rem 0.72rem;
+}
+
+.cart-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-toggle span {
+  background: white;
+  color: var(--accent);
+  border-radius: 999px;
+  min-width: 1.4rem;
+  padding: 0.04rem 0.3rem;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.cart-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+}
+
+.cart-header,
+.cart-footer {
+  padding: 1rem;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--stroke);
+}
+
+.cart-items {
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 54vh;
+  overflow: auto;
+}
+
+.empty-cart {
+  color: var(--muted);
+  border: 1px dashed var(--stroke);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 0;
+}
+
+.cart-row {
+  border: 1px solid var(--stroke);
+  border-radius: 12px;
+  padding: 0.8rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.6rem;
+  background: #fffdf8;
+}
+
+.cart-row h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.cart-row p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.qty-controls button {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 8px;
+  border: 1px solid var(--stroke);
+  background: #fff;
+  color: var(--ink);
+}
+
+.qty {
+  font-family: "IBM Plex Mono", monospace;
+  min-width: 1.1rem;
+  text-align: center;
+}
+
+.remove-btn {
+  margin-top: 0.4rem;
+  background: transparent;
+  color: var(--danger);
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding-block: 0.62rem;
+}
+
+.tiny-note {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.checkout-dialog {
+  width: min(500px, 94vw);
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.checkout-dialog::backdrop {
+  background: rgba(25, 23, 22, 0.5);
+}
+
+.checkout-dialog h3 {
+  margin-top: 0;
+}
+
+.checkout-dialog ul {
+  padding-left: 1.15rem;
+  color: var(--muted);
+}
+
+.checkout-total {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.checkout-dialog menu {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+}
+
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: min(420px, 95vw);
+    border-radius: 16px 0 0 16px;
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    z-index: 10;
+  }
+
+  .cart-panel.open {
+    transform: translateX(0);
+  }
+}
