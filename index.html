@@ -21,14 +21,26 @@
         <p class="eyebrow">TailoredAgile</p>
         <h1>Design your own project framework</h1>
       </div>
-      <button id="cartToggle" class="cart-toggle" aria-label="Open ways of working">
-        Ways of Working <span id="cartCount">0</span>
-      </button>
+      <div class="topbar-actions">
+        <a class="collections-link" href="collections.html">Collections</a>
+        <button id="cartToggle" class="cart-toggle" aria-label="Open ways of working">
+          Ways of Working <span id="cartCount">0</span>
+        </button>
+      </div>
     </header>
 
     <main class="layout">
       <aside class="filter-sidebar" aria-label="Filter methodologies and practices">
         <div class="filter-panel">
+          <div class="filter-search">
+            <label for="nameSearch">Search By Name</label>
+            <input
+              id="nameSearch"
+              type="search"
+              placeholder="Search practices..."
+              autocomplete="off"
+            />
+          </div>
           <h3>Filter By Type</h3>
           <div id="typeFilters" class="filter-list"></div>
         </div>
@@ -82,6 +94,7 @@
     </dialog>
 
     <script src="catalog-data.js"></script>
+    <script src="collections-data.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

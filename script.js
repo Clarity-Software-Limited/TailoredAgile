@@ -1,6 +1,7 @@
 const cart = new Set();
 
 const catalogGrid = document.getElementById("catalogGrid");
+const nameSearchEl = document.getElementById("nameSearch");
 const typeFiltersEl = document.getElementById("typeFilters");
 const catalogEmptyEl = document.getElementById("catalogEmpty");
 const cartItemsEl = document.getElementById("cartItems");
@@ -15,6 +16,31 @@ const checkoutSummary = document.getElementById("checkoutSummary");
 const confirmOrderBtn = document.getElementById("confirmOrderBtn");
 
 let activeType = "All";
+let searchText = "";
+
+function applyCollectionFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const collectionId = params.get("collection");
+  if (!collectionId || typeof collections === "undefined") return;
+
+  const selectedCollection = collections.find((entry) => entry.id === collectionId);
+  if (!selectedCollection) return;
+
+  cart.clear();
+  selectedCollection.items.forEach((id) => {
+    if (catalogItems.some((item) => item.id === id)) {
+      cart.add(id);
+    }
+  });
+
+  activeType = "All";
+  searchText = "";
+  if (nameSearchEl) nameSearchEl.value = "";
+
+  if (window.history.replaceState) {
+    window.history.replaceState({}, document.title, "index.html");
+  }
+}
 
 function getTypes() {
   return ["All", ...new Set(catalogItems.map((item) => item.type))];
@@ -33,8 +59,14 @@ function renderTypeFilters() {
 }
 
 function getVisibleItems() {
-  if (activeType === "All") return catalogItems;
-  return catalogItems.filter((item) => item.type === activeType);
+  const normalizedSearch = searchText.trim().toLowerCase();
+
+  return catalogItems.filter((item) => {
+    const typeMatches = activeType === "All" || item.type === activeType;
+    const nameMatches =
+      normalizedSearch === "" || item.name.toLowerCase().includes(normalizedSearch);
+    return typeMatches && nameMatches;
+  });
 }
 
 function renderCatalog() {
@@ -137,6 +169,11 @@ typeFiltersEl.addEventListener("click", (event) => {
   renderCatalog();
 });
 
+nameSearchEl.addEventListener("input", (event) => {
+  searchText = event.target.value;
+  renderCatalog();
+});
+
 function buildCheckoutSummary() {
   checkoutSummary.innerHTML = "";
   for (const id of cart.values()) {
@@ -167,6 +204,7 @@ closeCart.addEventListener("click", () => {
   cartPanel.classList.remove("open");
 });
 
+applyCollectionFromQuery();
 renderCatalog();
 renderTypeFilters();
 renderCart();

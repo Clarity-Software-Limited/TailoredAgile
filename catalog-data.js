@@ -14,6 +14,62 @@ const catalogItems = [
       "When leadership ties points directly to output quotas, teams inflate estimates, game metrics, and lose trust, resulting in poor planning and lower product quality."
   },
   {
+    id: "time-based-estimation",
+    name: "Time Based Estimation",
+    type: "Planning",
+    description: "Estimate work in hours or days for explicit time expectations.",
+    overview:
+      "Time based estimation predicts how long work may take using hours or days, often to support planning, sequencing, and delivery forecasts.",
+    good:
+      "Useful when teams need straightforward timelines, external coordination, or budget planning tied directly to expected effort windows.",
+    bad:
+      "Estimates can be treated as fixed commitments, even when uncertainty is high and new information changes the true effort required.",
+    ugly:
+      "When time estimates are used as promises for individual accountability, teams pad numbers, hide risk, and lose trust in planning outcomes."
+  },
+  {
+    id: "critical-path-planning",
+    name: "Critical Path Planning",
+    type: "Planning",
+    description: "Sequence dependent work to identify the longest delivery path.",
+    overview:
+      "Critical path planning maps task dependencies to find the chain of activities that determines the earliest possible completion date.",
+    good:
+      "Improves schedule visibility for complex initiatives, highlights dependency risk, and helps teams focus on work that most affects delivery timing.",
+    bad:
+      "Plans can become brittle if task durations are overly optimistic or if changing dependencies are not updated regularly.",
+    ugly:
+      "When treated as a fixed command-and-control schedule, teams hide delays and local constraints, causing late surprises and lower delivery trust."
+  },
+  {
+    id: "product-breakdown-structure",
+    name: "Product Breakdown Structure",
+    type: "Backlog",
+    description: "Decompose the product into structured deliverable components.",
+    overview:
+      "A product breakdown structure organizes the product into hierarchical parts so teams can understand scope, ownership, and planning boundaries.",
+    good:
+      "Clarifies scope early, reduces ambiguity across teams, and supports cleaner planning conversations around deliverables and integration points.",
+    bad:
+      "If decomposition is too rigid, teams can optimize component completion over end-to-end customer outcomes.",
+    ugly:
+      "Overly detailed structures can become bureaucratic artifacts that are expensive to maintain and disconnected from real delivery flow."
+  },
+  {
+    id: "product-flow-diagram",
+    name: "Product Flow Diagram",
+    type: "Discovery",
+    description: "Visualize how users and data move through the product experience.",
+    overview:
+      "A product flow diagram maps key user steps, system interactions, and decision points to make the product journey explicit before implementation.",
+    good:
+      "Aligns product, design, and engineering quickly, reveals missing states, and helps teams reason about edge cases earlier.",
+    bad:
+      "Diagrams can become outdated when teams iterate quickly without updating the source of truth.",
+    ugly:
+      "If used as a one-off artifact instead of a living model, teams build divergent interpretations that cause rework and inconsistent experiences."
+  },
+  {
     id: "stories",
     name: "Stories",
     type: "Backlog",
