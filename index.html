@@ -22,6 +22,7 @@
         <h1>Design your own project framework</h1>
       </div>
       <div class="topbar-actions">
+        <a class="collections-link" href="certification.html">Certification</a>
         <a class="collections-link" href="collections.html">Collections</a>
         <button id="cartToggle" class="cart-toggle" aria-label="Open ways of working">
           Ways of Working <span id="cartCount">0</span>
@@ -41,6 +42,14 @@
               autocomplete="off"
             />
           </div>
+          <button
+            id="antiPatternsFilter"
+            type="button"
+            class="filter-btn anti-patterns-filter"
+            aria-pressed="false"
+          >
+            Anti Patterns
+          </button>
           <h3>Filter By Type</h3>
           <div id="typeFilters" class="filter-list"></div>
         </div>
@@ -61,9 +70,6 @@
       <aside id="cartPanel" class="cart-panel" aria-label="Ways of working">
         <div class="cart-header">
           <h2>Your Ways of Working</h2>
-          <button id="closeCart" class="ghost-btn" aria-label="Close ways of working">
-            Close
-          </button>
         </div>
         <div id="cartItems" class="cart-items"></div>
         <div class="cart-footer">

@@ -142,6 +142,11 @@ h2 {
   margin-bottom: 0.9rem;
 }
 
+.anti-patterns-filter {
+  width: 100%;
+  margin-bottom: 0.85rem;
+}
+
 .filter-search label {
   display: block;
   margin-bottom: 0.35rem;
@@ -216,6 +221,14 @@ button.filter-btn.active {
   transform: translateY(10px);
   opacity: 0;
   animation: rise-in 0.45s ease forwards;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.item-card:hover {
+  border-color: color-mix(in oklab, var(--accent), white 50%);
+  box-shadow: 0 8px 22px rgba(41, 35, 30, 0.12);
+  transform: translateY(-1px);
 }
 
 .item-badge {
