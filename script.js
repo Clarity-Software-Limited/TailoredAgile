@@ -23,7 +23,7 @@ function renderCatalog() {
       <p class="item-desc">${item.description}</p>
       <div class="item-footer">
         <a class="details-link" href="practice.html?id=${item.id}">View Summary</a>
-        <button class="add-btn" data-id="${item.id}">Add to Ways of Workgin</button>
+        <button class="add-btn" data-id="${item.id}">Add to Ways of Working</button>
       </div>
     `;
     catalogGrid.appendChild(card);
@@ -71,7 +71,7 @@ function renderCart() {
 
   if (cart.size === 0) {
     cartItemsEl.innerHTML =
-      '<p class="empty-cart">Your ways of workgin is empty. Start adding practices from the left.</p>';
+      '<p class="empty-cart">Your ways of working are empty. Start adding practices from the left.</p>';
   } else {
     for (const [id, qty] of cart.entries()) {
       const item = catalogItems.find((entry) => entry.id === id);
