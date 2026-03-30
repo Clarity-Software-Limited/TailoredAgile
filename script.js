@@ -1,48 +1,3 @@
-const catalogItems = [
-  {
-    id: "story-points",
-    name: "Story Points",
-    type: "Planning",
-    description: "Relative sizing to estimate delivery effort and uncertainty."
-  },
-  {
-    id: "stories",
-    name: "Stories",
-    type: "Backlog",
-    description: "Outcome-focused work items for customer and team alignment."
-  },
-  {
-    id: "two-week-iterations",
-    name: "Two-Week Iterations",
-    type: "Cadence",
-    description: "Fast feedback loops with regular planning and review cycles."
-  },
-  {
-    id: "three-week-iterations",
-    name: "Three-Week Iterations",
-    type: "Cadence",
-    description: "Slightly longer windows for larger batch delivery."
-  },
-  {
-    id: "continuous-deployment",
-    name: "Continuous Deployment",
-    type: "Delivery",
-    description: "Release validated changes to production automatically."
-  },
-  {
-    id: "continuous-integration",
-    name: "Continuous Integration",
-    type: "Engineering",
-    description: "Merge often and test often to reduce integration risk."
-  },
-  {
-    id: "automated-regression-testing",
-    name: "Automated Regression Testing",
-    type: "Quality",
-    description: "Protect features with repeatable checks against breakage."
-  }
-];
-
 const cart = new Map();
 
 const catalogGrid = document.getElementById("catalogGrid");
@@ -67,6 +22,7 @@ function renderCatalog() {
       <h3 class="item-title">${item.name}</h3>
       <p class="item-desc">${item.description}</p>
       <div class="item-footer">
+        <a class="details-link" href="practice.html?id=${item.id}">View Summary</a>
         <button class="add-btn" data-id="${item.id}">Add to Ways of Workgin</button>
       </div>
     `;

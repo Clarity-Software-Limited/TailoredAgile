@@ -155,6 +155,21 @@ h2 {
   gap: 0.6rem;
 }
 
+.details-link {
+  text-decoration: none;
+  color: var(--accent);
+  border: 1px solid var(--stroke);
+  border-radius: 10px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: transparent;
+}
+
+.details-link:hover {
+  background: color-mix(in oklab, var(--surface), white 35%);
+}
+
 button {
   border: 0;
   font: inherit;
@@ -336,6 +351,52 @@ button {
   justify-content: flex-end;
   padding: 0;
   margin: 0;
+}
+
+.practice-layout {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.2rem 1.1rem 2rem;
+}
+
+.practice-panel {
+  background: color-mix(in oklab, var(--surface), white 35%);
+  border: 1px solid var(--stroke);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 1.35rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.summary-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.summary-card {
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  padding: 0.95rem;
+  background: #fffdf7;
+}
+
+.summary-card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.45rem;
+}
+
+.summary-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
 }
 
 @keyframes rise-in {
