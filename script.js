@@ -1,6 +1,8 @@
-const cart = new Map();
+const cart = new Set();
 
 const catalogGrid = document.getElementById("catalogGrid");
+const typeFiltersEl = document.getElementById("typeFilters");
+const catalogEmptyEl = document.getElementById("catalogEmpty");
 const cartItemsEl = document.getElementById("cartItems");
 const cartTotalEl = document.getElementById("cartTotal");
 const cartCountEl = document.getElementById("cartCount");
@@ -12,8 +14,35 @@ const checkoutDialog = document.getElementById("checkoutDialog");
 const checkoutSummary = document.getElementById("checkoutSummary");
 const confirmOrderBtn = document.getElementById("confirmOrderBtn");
 
+let activeType = "All";
+
+function getTypes() {
+  return ["All", ...new Set(catalogItems.map((item) => item.type))];
+}
+
+function renderTypeFilters() {
+  typeFiltersEl.innerHTML = "";
+  getTypes().forEach((type) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `filter-btn${type === activeType ? " active" : ""}`;
+    button.dataset.filter = type;
+    button.textContent = type;
+    typeFiltersEl.appendChild(button);
+  });
+}
+
+function getVisibleItems() {
+  if (activeType === "All") return catalogItems;
+  return catalogItems.filter((item) => item.type === activeType);
+}
+
 function renderCatalog() {
-  catalogItems.forEach((item, idx) => {
+  catalogGrid.innerHTML = "";
+
+  const visibleItems = getVisibleItems();
+  visibleItems.forEach((item, idx) => {
+    const isAdded = cart.has(item.id);
     const card = document.createElement("article");
     card.className = "item-card";
     card.style.animationDelay = `${idx * 55}ms`;
@@ -22,46 +51,35 @@ function renderCatalog() {
       <h3 class="item-title">${item.name}</h3>
       <p class="item-desc">${item.description}</p>
       <div class="item-footer">
-        <a class="details-link" href="practice.html?id=${item.id}">View Summary</a>
-        <button class="add-btn" data-id="${item.id}">Add to Ways of Working</button>
+        <button class="add-btn${isAdded ? " is-added" : ""}" data-id="${item.id}" ${
+          isAdded ? "disabled" : ""
+        }>${isAdded ? "Added" : "Add"}</button>
       </div>
     `;
     catalogGrid.appendChild(card);
   });
 
-  catalogGrid.addEventListener("click", (event) => {
-    const button = event.target.closest(".add-btn");
-    if (!button) return;
-    addToCart(button.dataset.id);
-  });
+  catalogEmptyEl.hidden = visibleItems.length !== 0;
 }
 
 function addToCart(itemId) {
-  cart.set(itemId, (cart.get(itemId) || 0) + 1);
-  renderCart();
-}
-
-function updateQty(itemId, delta) {
-  const nextQty = (cart.get(itemId) || 0) + delta;
-  if (nextQty <= 0) {
-    cart.delete(itemId);
-  } else {
-    cart.set(itemId, nextQty);
-  }
+  cart.add(itemId);
+  renderCatalog();
   renderCart();
 }
 
 function removeItem(itemId) {
   cart.delete(itemId);
+  renderCatalog();
   renderCart();
 }
 
 function getTotals() {
   let count = 0;
-  for (const [id, qty] of cart.entries()) {
+  for (const id of cart.values()) {
     const item = catalogItems.find((entry) => entry.id === id);
     if (!item) continue;
-    count += qty;
+    count += 1;
   }
   return { count };
 }
@@ -73,7 +91,7 @@ function renderCart() {
     cartItemsEl.innerHTML =
       '<p class="empty-cart">Your ways of working are empty. Start adding practices from the left.</p>';
   } else {
-    for (const [id, qty] of cart.entries()) {
+    for (const id of cart.values()) {
       const item = catalogItems.find((entry) => entry.id === id);
       if (!item) continue;
 
@@ -84,13 +102,6 @@ function renderCart() {
           <h4>${item.name}</h4>
           <p>${item.type}</p>
           <button class="remove-btn" data-remove="${item.id}">Remove</button>
-        </div>
-        <div>
-          <div class="qty-controls">
-            <button aria-label="decrease quantity" data-minus="${item.id}">-</button>
-            <span class="qty">${qty}</span>
-            <button aria-label="increase quantity" data-plus="${item.id}">+</button>
-          </div>
         </div>
       `;
       cartItemsEl.appendChild(row);
@@ -107,22 +118,32 @@ function renderCart() {
 }
 
 cartItemsEl.addEventListener("click", (event) => {
-  const minusBtn = event.target.closest("[data-minus]");
-  const plusBtn = event.target.closest("[data-plus]");
   const removeBtn = event.target.closest("[data-remove]");
-
-  if (minusBtn) updateQty(minusBtn.dataset.minus, -1);
-  if (plusBtn) updateQty(plusBtn.dataset.plus, 1);
   if (removeBtn) removeItem(removeBtn.dataset.remove);
+});
+
+catalogGrid.addEventListener("click", (event) => {
+  const button = event.target.closest(".add-btn");
+  if (!button) return;
+  addToCart(button.dataset.id);
+});
+
+typeFiltersEl.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-filter]");
+  if (!button) return;
+
+  activeType = button.dataset.filter;
+  renderTypeFilters();
+  renderCatalog();
 });
 
 function buildCheckoutSummary() {
   checkoutSummary.innerHTML = "";
-  for (const [id, qty] of cart.entries()) {
+  for (const id of cart.values()) {
     const item = catalogItems.find((entry) => entry.id === id);
     if (!item) continue;
     const li = document.createElement("li");
-    li.textContent = `${qty} x ${item.name}`;
+    li.textContent = item.name;
     checkoutSummary.appendChild(li);
   }
 }
@@ -147,4 +168,5 @@ closeCart.addEventListener("click", () => {
 });
 
 renderCatalog();
+renderTypeFilters();
 renderCart();

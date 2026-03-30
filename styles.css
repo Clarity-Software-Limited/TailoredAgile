@@ -80,16 +80,22 @@ h1 {
   margin: 0 auto;
   padding: 0.6rem 1.1rem 2rem;
   display: grid;
-  grid-template-columns: 2fr minmax(310px, 1fr);
+  grid-template-columns: minmax(210px, 250px) minmax(0, 2fr) minmax(310px, 1fr);
   gap: 1.2rem;
+  align-items: start;
 }
 
 .catalog,
-.cart-panel {
+.cart-panel,
+.filter-sidebar {
   background: color-mix(in oklab, var(--surface), white 35%);
   border: 1px solid var(--stroke);
   border-radius: 20px;
   box-shadow: var(--shadow);
+}
+
+.filter-sidebar {
+  padding: 1rem;
 }
 
 .catalog {
@@ -106,11 +112,49 @@ h2 {
   max-width: 60ch;
 }
 
+.filter-panel {
+  padding: 0;
+  position: sticky;
+  top: 1rem;
+}
+
+.filter-panel h3 {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+button.filter-btn {
+  text-align: left;
+  border: 1px solid var(--stroke);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.45rem 0.6rem;
+}
+
+button.filter-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
 .catalog-grid {
-  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
   gap: 0.85rem;
+}
+
+.catalog-empty {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
 }
 
 .item-card {
@@ -155,21 +199,6 @@ h2 {
   gap: 0.6rem;
 }
 
-.details-link {
-  text-decoration: none;
-  color: var(--accent);
-  border: 1px solid var(--stroke);
-  border-radius: 10px;
-  padding: 0.45rem 0.65rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  background: transparent;
-}
-
-.details-link:hover {
-  background: color-mix(in oklab, var(--surface), white 35%);
-}
-
 button {
   border: 0;
   font: inherit;
@@ -192,6 +221,13 @@ button {
 .cart-toggle:hover {
   background: #004b5b;
   transform: translateY(-1px);
+}
+
+.add-btn.is-added,
+.add-btn:disabled {
+  background: #3f7f8d;
+  cursor: default;
+  transform: none;
 }
 
 .ghost-btn {
@@ -256,9 +292,7 @@ button {
   border: 1px solid var(--stroke);
   border-radius: 12px;
   padding: 0.8rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.6rem;
+  display: block;
   background: #fffdf8;
 }
 
@@ -271,27 +305,6 @@ button {
   margin: 0.25rem 0 0;
   color: var(--muted);
   font-size: 0.9rem;
-}
-
-.qty-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
-.qty-controls button {
-  width: 1.7rem;
-  height: 1.7rem;
-  border-radius: 8px;
-  border: 1px solid var(--stroke);
-  background: #fff;
-  color: var(--ink);
-}
-
-.qty {
-  font-family: "IBM Plex Mono", monospace;
-  min-width: 1.1rem;
-  text-align: center;
 }
 
 .remove-btn {
@@ -409,6 +422,15 @@ button {
 @media (max-width: 960px) {
   .layout {
     grid-template-columns: 1fr;
+  }
+
+  .filter-panel {
+    position: static;
+  }
+
+  .filter-list {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .cart-panel {

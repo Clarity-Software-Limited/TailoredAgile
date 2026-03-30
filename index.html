@@ -27,6 +27,13 @@
     </header>
 
     <main class="layout">
+      <aside class="filter-sidebar" aria-label="Filter methodologies and practices">
+        <div class="filter-panel">
+          <h3>Filter By Type</h3>
+          <div id="typeFilters" class="filter-list"></div>
+        </div>
+      </aside>
+
       <section class="catalog">
         <h2>Methodologies & Practices</h2>
         <p class="section-lead">
@@ -34,6 +41,9 @@
           development lifecycle.
         </p>
         <div id="catalogGrid" class="catalog-grid"></div>
+        <p id="catalogEmpty" class="catalog-empty" hidden>
+          No practices match this filter.
+        </p>
       </section>
 
       <aside id="cartPanel" class="cart-panel" aria-label="Ways of working">
