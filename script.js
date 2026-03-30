@@ -3,49 +3,42 @@ const catalogItems = [
     id: "story-points",
     name: "Story Points",
     type: "Planning",
-    price: 35,
     description: "Relative sizing to estimate delivery effort and uncertainty."
   },
   {
     id: "stories",
     name: "Stories",
     type: "Backlog",
-    price: 29,
     description: "Outcome-focused work items for customer and team alignment."
   },
   {
     id: "two-week-iterations",
     name: "Two-Week Iterations",
     type: "Cadence",
-    price: 44,
     description: "Fast feedback loops with regular planning and review cycles."
   },
   {
     id: "three-week-iterations",
     name: "Three-Week Iterations",
     type: "Cadence",
-    price: 41,
     description: "Slightly longer windows for larger batch delivery."
   },
   {
     id: "continuous-deployment",
     name: "Continuous Deployment",
     type: "Delivery",
-    price: 62,
     description: "Release validated changes to production automatically."
   },
   {
     id: "continuous-integration",
     name: "Continuous Integration",
     type: "Engineering",
-    price: 56,
     description: "Merge often and test often to reduce integration risk."
   },
   {
     id: "automated-regression-testing",
     name: "Automated Regression Testing",
     type: "Quality",
-    price: 74,
     description: "Protect features with repeatable checks against breakage."
   }
 ];
@@ -62,12 +55,7 @@ const closeCart = document.getElementById("closeCart");
 const cartPanel = document.getElementById("cartPanel");
 const checkoutDialog = document.getElementById("checkoutDialog");
 const checkoutSummary = document.getElementById("checkoutSummary");
-const checkoutTotal = document.getElementById("checkoutTotal");
 const confirmOrderBtn = document.getElementById("confirmOrderBtn");
-
-function formatMoney(value) {
-  return `$${value.toFixed(0)}`;
-}
 
 function renderCatalog() {
   catalogItems.forEach((item, idx) => {
@@ -79,8 +67,7 @@ function renderCatalog() {
       <h3 class="item-title">${item.name}</h3>
       <p class="item-desc">${item.description}</p>
       <div class="item-footer">
-        <span class="price">${formatMoney(item.price)}</span>
-        <button class="add-btn" data-id="${item.id}">Add to Cart</button>
+        <button class="add-btn" data-id="${item.id}">Add to Ways of Workgin</button>
       </div>
     `;
     catalogGrid.appendChild(card);
@@ -115,14 +102,12 @@ function removeItem(itemId) {
 
 function getTotals() {
   let count = 0;
-  let total = 0;
   for (const [id, qty] of cart.entries()) {
     const item = catalogItems.find((entry) => entry.id === id);
     if (!item) continue;
     count += qty;
-    total += item.price * qty;
   }
-  return { count, total };
+  return { count };
 }
 
 function renderCart() {
@@ -130,7 +115,7 @@ function renderCart() {
 
   if (cart.size === 0) {
     cartItemsEl.innerHTML =
-      '<p class="empty-cart">Your framework cart is empty. Start adding practices from the left.</p>';
+      '<p class="empty-cart">Your ways of workgin is empty. Start adding practices from the left.</p>';
   } else {
     for (const [id, qty] of cart.entries()) {
       const item = catalogItems.find((entry) => entry.id === id);
@@ -141,7 +126,7 @@ function renderCart() {
       row.innerHTML = `
         <div>
           <h4>${item.name}</h4>
-          <p>${item.type} • ${formatMoney(item.price)} each</p>
+          <p>${item.type}</p>
           <button class="remove-btn" data-remove="${item.id}">Remove</button>
         </div>
         <div>
@@ -150,16 +135,15 @@ function renderCart() {
             <span class="qty">${qty}</span>
             <button aria-label="increase quantity" data-plus="${item.id}">+</button>
           </div>
-          <p>${formatMoney(item.price * qty)}</p>
         </div>
       `;
       cartItemsEl.appendChild(row);
     }
   }
 
-  const { count, total } = getTotals();
+  const { count } = getTotals();
   cartCountEl.textContent = String(count);
-  cartTotalEl.textContent = formatMoney(total);
+  cartTotalEl.textContent = `${count} item${count === 1 ? "" : "s"}`;
 
   checkoutBtn.disabled = count === 0;
   checkoutBtn.style.opacity = count === 0 ? "0.65" : "1";
@@ -182,12 +166,9 @@ function buildCheckoutSummary() {
     const item = catalogItems.find((entry) => entry.id === id);
     if (!item) continue;
     const li = document.createElement("li");
-    li.textContent = `${qty} x ${item.name} (${formatMoney(item.price * qty)})`;
+    li.textContent = `${qty} x ${item.name}`;
     checkoutSummary.appendChild(li);
   }
-
-  const { total } = getTotals();
-  checkoutTotal.textContent = formatMoney(total);
 }
 
 checkoutBtn.addEventListener("click", () => {

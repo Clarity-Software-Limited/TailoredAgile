@@ -150,14 +150,9 @@ h2 {
 .item-footer {
   margin-top: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 0.6rem;
-}
-
-.price {
-  font-family: "IBM Plex Mono", monospace;
-  font-weight: 500;
 }
 
 button {

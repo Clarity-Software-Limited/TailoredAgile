@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TailoredAgile | Build Your SDLC Cart</title>
+    <title>TailoredAgile | Build Your SDLC Ways of Workgin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,8 +21,8 @@
         <p class="eyebrow">TailoredAgile</p>
         <h1>Design your own project framework</h1>
       </div>
-      <button id="cartToggle" class="cart-toggle" aria-label="Open cart">
-        Cart <span id="cartCount">0</span>
+      <button id="cartToggle" class="cart-toggle" aria-label="Open ways of workgin">
+        Ways of Workgin <span id="cartCount">0</span>
       </button>
     </header>
 
@@ -36,18 +36,18 @@
         <div id="catalogGrid" class="catalog-grid"></div>
       </section>
 
-      <aside id="cartPanel" class="cart-panel" aria-label="Shopping cart">
+      <aside id="cartPanel" class="cart-panel" aria-label="Ways of workgin">
         <div class="cart-header">
-          <h2>Your Framework Cart</h2>
-          <button id="closeCart" class="ghost-btn" aria-label="Close cart">
+          <h2>Your Ways of Workgin</h2>
+          <button id="closeCart" class="ghost-btn" aria-label="Close ways of workgin">
             Close
           </button>
         </div>
         <div id="cartItems" class="cart-items"></div>
         <div class="cart-footer">
           <div class="cart-total-row">
-            <span>Total</span>
-            <strong id="cartTotal">$0</strong>
+            <span>Items</span>
+            <strong id="cartTotal">0 items</strong>
           </div>
           <button id="checkoutBtn" class="checkout-btn">Checkout</button>
           <p class="tiny-note">
@@ -62,9 +62,6 @@
         <h3>Checkout Summary</h3>
         <p>Here is your tailored SDLC bundle:</p>
         <ul id="checkoutSummary"></ul>
-        <p class="checkout-total">
-          Grand Total: <strong id="checkoutTotal">$0</strong>
-        </p>
         <menu>
           <button value="cancel" class="ghost-btn">Keep Editing</button>
           <button id="confirmOrderBtn" value="default" class="checkout-btn">
