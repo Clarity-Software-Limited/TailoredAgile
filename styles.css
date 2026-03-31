@@ -225,6 +225,11 @@ button.filter-btn.active {
   transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 
+.item-card--anti-pattern {
+  background: #ffb3ab;
+  border-color: color-mix(in oklab, var(--danger), white 30%);
+}
+
 .item-card:hover {
   border-color: color-mix(in oklab, var(--accent), white 50%);
   box-shadow: 0 8px 22px rgba(41, 35, 30, 0.12);

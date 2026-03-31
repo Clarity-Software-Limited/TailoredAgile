@@ -80,7 +80,7 @@ function renderCatalog() {
   visibleItems.forEach((item, idx) => {
     const isAdded = cart.has(item.id);
     const card = document.createElement("article");
-    card.className = "item-card";
+    card.className = `item-card${item.antiPattern ? " item-card--anti-pattern" : ""}`;
     card.dataset.id = item.id;
     card.style.animationDelay = `${idx * 55}ms`;
     card.innerHTML = `

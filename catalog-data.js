@@ -17,7 +17,6 @@ const catalogItems = [
     id: "time-based-estimation",
     name: "Time Based Estimation",
     type: "Planning",
-    antiPattern: true,
     description: "Estimate work in hours or days for explicit time expectations.",
     overview:
       "Time based estimation predicts how long work may take using hours or days, often to support planning, sequencing, and delivery forecasts.",
@@ -32,7 +31,6 @@ const catalogItems = [
     id: "critical-path-planning",
     name: "Critical Path Planning",
     type: "Planning",
-    antiPattern: true,
     description: "Sequence dependent work to identify the longest delivery path.",
     overview:
       "Critical path planning maps task dependencies to find the chain of activities that determines the earliest possible completion date.",
@@ -47,7 +45,6 @@ const catalogItems = [
     id: "product-breakdown-structure",
     name: "Product Breakdown Structure",
     type: "Backlog",
-    antiPattern: true,
     description: "Decompose the product into structured deliverable components.",
     overview:
       "A product breakdown structure organizes the product into hierarchical parts so teams can understand scope, ownership, and planning boundaries.",
