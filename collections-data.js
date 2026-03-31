@@ -25,5 +25,11 @@ const collections = [
       "automated-regression-testing",
       "two-week-iterations"
     ]
+  },
+  {
+    id: "kumbaya-corporate",
+    name: "Kumbaya Corporate Collection",
+    description: "Balances delivery rhythm with collaborative planning rituals.",
+    items: ["two-week-iterations", "story-points"]
   }
 ];

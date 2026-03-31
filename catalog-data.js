@@ -71,6 +71,21 @@ const catalogItems = [
       "Persistent bike shedding erodes trust, blocks momentum, and creates a culture where appearance-level decisions consistently outweigh customer value."
   },
   {
+    id: "toxic-positivity",
+    name: "Toxic Positivity",
+    type: "Collaboration",
+    antiPattern: true,
+    description: "Avoiding hard truths by forcing optimism in all discussions.",
+    overview:
+      "Toxic positivity appears when teams suppress concerns, risks, or negative feedback in favor of constant optimism, even when problems need direct attention.",
+    good:
+      "A constructive and hopeful tone can help teams stay resilient during setbacks and maintain momentum through uncertainty.",
+    bad:
+      "When optimism replaces honest discussion, risks go unspoken, valid concerns get dismissed, and teams lose opportunities to learn early.",
+    ugly:
+      "At its worst, toxic positivity creates psychological unsafety where people hide issues, defects escalate, and trust breaks down across the team."
+  },
+  {
     id: "product-flow-diagram",
     name: "Product Flow Diagram",
     type: "Discovery",
