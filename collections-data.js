@@ -30,6 +30,6 @@ const collections = [
     id: "kumbaya-corporate",
     name: "Kumbaya Corporate Collection",
     description: "Balances delivery rhythm with collaborative planning rituals.",
-    items: ["two-week-iterations", "story-points"]
+    items: ["two-week-iterations", "story-points", "toxic-positivity"]
   }
 ];

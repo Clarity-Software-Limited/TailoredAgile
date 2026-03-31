@@ -142,6 +142,34 @@ const catalogItems = [
       "When used as a shield against stakeholder visibility, problems stay hidden for weeks and failed assumptions become expensive to unwind."
   },
   {
+    id: "kanban",
+    name: "Kanban",
+    type: "Delivery",
+    description: "Visualize flow, limit WIP, and improve delivery predictability.",
+    overview:
+      "Kanban is a flow-based method that helps teams make work visible, manage work-in-progress limits, and continuously improve throughput and cycle time.",
+    good:
+      "Creates shared visibility, exposes bottlenecks early, and supports steady delivery improvements without forcing fixed-length iteration boundaries.",
+    bad:
+      "Without clear policies and explicit WIP limits, boards can become status dashboards that track activity but do not improve flow outcomes.",
+    ugly:
+      "If Kanban is used only as reporting theater, teams overload in-progress work, delay feedback, and normalize chronic blocked items."
+  },
+  {
+    id: "big-room-planning",
+    name: "Big Room Planning",
+    type: "Planning",
+    description: "Align teams together on goals, dependencies, and delivery plans.",
+    overview:
+      "Big room planning brings multiple teams together to align priorities, surface dependencies, and build a shared short-term delivery plan.",
+    good:
+      "Improves cross-team alignment, reveals delivery risks early, and builds shared ownership of outcomes and constraints.",
+    bad:
+      "Planning events can become heavy and inefficient if preparation is weak or decision-making authority is unclear.",
+    ugly:
+      "When treated as performative ceremony, teams leave with unrealistic commitments, hidden conflicts, and little real coordination."
+  },
+  {
     id: "continuous-deployment",
     name: "Continuous Deployment",
     type: "Delivery",
