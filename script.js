@@ -12,14 +12,56 @@ const checkoutBtn = document.getElementById("checkoutBtn");
 const cartToggle = document.getElementById("cartToggle");
 const cartPanel = document.getElementById("cartPanel");
 const waysOfWorkingNameEl = document.getElementById("waysOfWorkingName");
+const waysOfWorkingNameEditorEl = document.getElementById("waysOfWorkingNameEditor");
+const waysOfWorkingNameDisplayEl = document.getElementById("waysOfWorkingNameDisplay");
+const waysOfWorkingNameEditBtnEl = document.getElementById("waysOfWorkingNameEditBtn");
 
 let activeType = "All";
 let searchText = "";
 let showAntiPatterns = false;
 let waysOfWorkingName = "Ways of Working";
+let isEditingWaysOfWorkingName = false;
 
 function getWaysOfWorkingName() {
   return waysOfWorkingName.trim() || "Ways of Working";
+}
+
+function syncWaysOfWorkingNameUI() {
+  const safeName = getWaysOfWorkingName();
+  if (waysOfWorkingNameDisplayEl) {
+    waysOfWorkingNameDisplayEl.textContent = safeName;
+  }
+  if (waysOfWorkingNameEl && !isEditingWaysOfWorkingName) {
+    waysOfWorkingNameEl.value = waysOfWorkingName;
+  }
+}
+
+function setWaysOfWorkingName(nextName) {
+  waysOfWorkingName = nextName;
+  syncWaysOfWorkingNameUI();
+}
+
+function toggleWaysOfWorkingNameEdit(isEditing) {
+  isEditingWaysOfWorkingName = isEditing;
+  if (!waysOfWorkingNameEditorEl || !waysOfWorkingNameEl) return;
+
+  waysOfWorkingNameEditorEl.classList.toggle("is-editing", isEditing);
+  if (!isEditing) return;
+
+  waysOfWorkingNameEl.value = waysOfWorkingName;
+  waysOfWorkingNameEl.focus();
+  waysOfWorkingNameEl.select();
+}
+
+function commitWaysOfWorkingName() {
+  if (!waysOfWorkingNameEl) return;
+  setWaysOfWorkingName(waysOfWorkingNameEl.value);
+  toggleWaysOfWorkingNameEdit(false);
+}
+
+function cancelWaysOfWorkingNameEdit() {
+  syncWaysOfWorkingNameUI();
+  toggleWaysOfWorkingNameEdit(false);
 }
 
 function applyCollectionFromQuery() {
@@ -36,10 +78,7 @@ function applyCollectionFromQuery() {
       cart.add(id);
     }
   });
-  waysOfWorkingName = selectedCollection.name || waysOfWorkingName;
-  if (waysOfWorkingNameEl) {
-    waysOfWorkingNameEl.value = waysOfWorkingName;
-  }
+  setWaysOfWorkingName(selectedCollection.name || waysOfWorkingName);
 
   activeType = "All";
   searchText = "";
@@ -233,9 +272,29 @@ checkoutBtn.addEventListener("click", () => {
   }
 });
 
+if (waysOfWorkingNameEditBtnEl) {
+  waysOfWorkingNameEditBtnEl.addEventListener("click", () => {
+    toggleWaysOfWorkingNameEdit(true);
+  });
+}
+
 if (waysOfWorkingNameEl) {
-  waysOfWorkingNameEl.addEventListener("input", (event) => {
-    waysOfWorkingName = event.target.value;
+  waysOfWorkingNameEl.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      commitWaysOfWorkingName();
+      return;
+    }
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      cancelWaysOfWorkingNameEdit();
+    }
+  });
+
+  waysOfWorkingNameEl.addEventListener("blur", () => {
+    if (!isEditingWaysOfWorkingName) return;
+    commitWaysOfWorkingName();
   });
 }
 
@@ -244,6 +303,7 @@ cartToggle.addEventListener("click", () => {
 });
 
 applyCollectionFromQuery();
+syncWaysOfWorkingNameUI();
 renderCatalog();
 renderTypeFilters();
 renderCart();

@@ -341,12 +341,63 @@ button {
   gap: 0.38rem;
 }
 
-.cart-title-label {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.cart-name-editor {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.cart-name-display {
+  margin: 0;
   color: var(--accent);
+  font-weight: 600;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.cart-name-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--accent);
+  padding: 0;
+}
+
+.cart-name-edit-btn:hover {
+  border-color: var(--stroke);
+  background: color-mix(in oklab, var(--surface), white 20%);
+}
+
+.cart-name-edit-btn:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--accent), white 65%);
+  outline-offset: 1px;
+}
+
+.cart-name-edit-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.cart-name-editor .cart-title-input {
+  display: none;
+}
+
+.cart-name-editor.is-editing {
+  align-items: stretch;
+}
+
+.cart-name-editor.is-editing .cart-name-display,
+.cart-name-editor.is-editing .cart-name-edit-btn {
+  display: none;
+}
+
+.cart-name-editor.is-editing .cart-title-input {
+  display: block;
 }
 
 .cart-title-input {
@@ -361,6 +412,18 @@ button {
 .cart-title-input:focus {
   outline: 2px solid color-mix(in oklab, var(--accent), white 65%);
   outline-offset: 1px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .cart-items {

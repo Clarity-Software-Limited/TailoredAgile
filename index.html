@@ -72,15 +72,32 @@
         <div class="cart-header">
           <div class="cart-title-wrap">
             <h2>Your Ways of Working</h2>
-            <label class="cart-title-label" for="waysOfWorkingName">Name</label>
-            <input
-              id="waysOfWorkingName"
-              class="cart-title-input"
-              type="text"
-              maxlength="120"
-              placeholder="Ways of Working"
-              value="Ways of Working"
-            />
+            <div id="waysOfWorkingNameEditor" class="cart-name-editor">
+              <p id="waysOfWorkingNameDisplay" class="cart-name-display">Ways of Working</p>
+              <button
+                id="waysOfWorkingNameEditBtn"
+                type="button"
+                class="cart-name-edit-btn"
+                aria-label="Edit ways of working name"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path
+                    d="M3 17.25V21h3.75L18.81 8.94l-3.75-3.75L3 17.25Zm17.71-10.04a1 1 0 0 0 0-1.42l-2.5-2.5a1 1 0 0 0-1.42 0L14.85 5.23l3.75 3.75 2.11-2.11Z"
+                    fill="currentColor"
+                  />
+                </svg>
+                <span class="sr-only">Edit ways of working name</span>
+              </button>
+              <input
+                id="waysOfWorkingName"
+                class="cart-title-input"
+                type="text"
+                maxlength="120"
+                placeholder="Ways of Working"
+                value="Ways of Working"
+                aria-label="Ways of working name"
+              />
+            </div>
           </div>
         </div>
         <div id="cartItems" class="cart-items"></div>
