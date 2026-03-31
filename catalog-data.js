@@ -59,6 +59,21 @@ const catalogItems = [
       "Overly detailed structures can become bureaucratic artifacts that are expensive to maintain and disconnected from real delivery flow."
   },
   {
+    id: "bike-shedding",
+    name: "Bike Shedding",
+    type: "Collaboration",
+    antiPattern: true,
+    description: "Spending disproportionate effort on trivial decisions.",
+    overview:
+      "Bike shedding happens when teams focus heavily on easy, low-impact topics while difficult, high-impact decisions are delayed or avoided.",
+    good:
+      "A brief discussion on simple details can sometimes surface useful context, uncover assumptions, and include voices that might otherwise be missed.",
+    bad:
+      "When unchecked, trivial debates consume planning time, drain energy, and push meaningful delivery decisions further down the line.",
+    ugly:
+      "Persistent bike shedding erodes trust, blocks momentum, and creates a culture where appearance-level decisions consistently outweigh customer value."
+  },
+  {
     id: "product-flow-diagram",
     name: "Product Flow Diagram",
     type: "Discovery",
