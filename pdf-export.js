@@ -8,7 +8,20 @@
       .replaceAll("'", "&#39;");
   }
 
-  function buildPdfBundleMarkup(items) {
+  function buildPdfBundleMarkup(items, options = {}) {
+    const waysOfWorkingName =
+      typeof options.waysOfWorkingName === "string" && options.waysOfWorkingName.trim()
+        ? options.waysOfWorkingName.trim()
+        : "Ways of Working";
+
+    const coverPage = `
+      <section class="page cover-page">
+        <p class="eyebrow">TailoredAgile</p>
+        <h1>${escapeHtml(waysOfWorkingName)}</h1>
+        <p class="description">Custom Ways of Working</p>
+      </section>
+    `;
+
     const pages = items
       .map(
         (item) => `
@@ -64,6 +77,20 @@
       .page:last-child {
         page-break-after: auto;
       }
+      .cover-page {
+        display: grid;
+        place-content: center;
+        text-align: center;
+        gap: 10px;
+      }
+      .cover-page h1 {
+        font-size: 44px;
+        line-height: 1.08;
+      }
+      .cover-page .description {
+        margin: 0;
+        font-size: 18px;
+      }
       .eyebrow {
         margin: 0 0 8px;
         font-size: 11px;
@@ -105,6 +132,7 @@
     </style>
   </head>
   <body>
+    ${coverPage}
     ${pages}
     <script>
       window.addEventListener("load", () => {
@@ -115,7 +143,7 @@
 </html>`;
   }
 
-  function openPdfBundle(items, windowObj, alertFn) {
+  function openPdfBundle(items, windowObj, alertFn, options) {
     const runtimeWindow = windowObj || globalScope.window;
     const runtimeAlert = alertFn || globalScope.alert;
     const printWindow = runtimeWindow.open("about:blank", "_blank");
@@ -128,7 +156,7 @@
     }
 
     printWindow.document.open();
-    printWindow.document.write(buildPdfBundleMarkup(items));
+    printWindow.document.write(buildPdfBundleMarkup(items, options));
     printWindow.document.close();
     if (typeof printWindow.focus === "function") {
       printWindow.focus();

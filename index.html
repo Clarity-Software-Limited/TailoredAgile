@@ -22,6 +22,7 @@
         <h1>Design your own project framework</h1>
       </div>
       <div class="topbar-actions">
+        <a class="collections-link" href="change-advisory-board.html">CAB</a>
         <a class="collections-link" href="certification.html">Certification</a>
         <a class="collections-link" href="collections.html">Collections</a>
         <button id="cartToggle" class="cart-toggle" aria-label="Open ways of working">
@@ -69,7 +70,18 @@
 
       <aside id="cartPanel" class="cart-panel" aria-label="Ways of working">
         <div class="cart-header">
-          <h2>Your Ways of Working</h2>
+          <div class="cart-title-wrap">
+            <h2>Your Ways of Working</h2>
+            <label class="cart-title-label" for="waysOfWorkingName">Name</label>
+            <input
+              id="waysOfWorkingName"
+              class="cart-title-input"
+              type="text"
+              maxlength="120"
+              placeholder="Ways of Working"
+              value="Ways of Working"
+            />
+          </div>
         </div>
         <div id="cartItems" class="cart-items"></div>
         <div class="cart-footer">

@@ -11,10 +11,16 @@ const cartCountEl = document.getElementById("cartCount");
 const checkoutBtn = document.getElementById("checkoutBtn");
 const cartToggle = document.getElementById("cartToggle");
 const cartPanel = document.getElementById("cartPanel");
+const waysOfWorkingNameEl = document.getElementById("waysOfWorkingName");
 
 let activeType = "All";
 let searchText = "";
 let showAntiPatterns = false;
+let waysOfWorkingName = "Ways of Working";
+
+function getWaysOfWorkingName() {
+  return waysOfWorkingName.trim() || "Ways of Working";
+}
 
 function applyCollectionFromQuery() {
   const params = new URLSearchParams(window.location.search);
@@ -30,6 +36,10 @@ function applyCollectionFromQuery() {
       cart.add(id);
     }
   });
+  waysOfWorkingName = selectedCollection.name || waysOfWorkingName;
+  if (waysOfWorkingNameEl) {
+    waysOfWorkingNameEl.value = waysOfWorkingName;
+  }
 
   activeType = "All";
   searchText = "";
@@ -215,11 +225,19 @@ checkoutBtn.addEventListener("click", () => {
   if (cart.size === 0) return;
   const selectedItems = getCartItems();
   if (window.pdfExport && typeof window.pdfExport.openPdfBundle === "function") {
-    window.pdfExport.openPdfBundle(selectedItems);
+    window.pdfExport.openPdfBundle(selectedItems, undefined, undefined, {
+      waysOfWorkingName: getWaysOfWorkingName(),
+    });
   } else {
     alert("PDF export is unavailable right now. Please refresh and try again.");
   }
 });
+
+if (waysOfWorkingNameEl) {
+  waysOfWorkingNameEl.addEventListener("input", (event) => {
+    waysOfWorkingName = event.target.value;
+  });
+}
 
 cartToggle.addEventListener("click", () => {
   cartPanel.classList.add("open");

@@ -13,7 +13,7 @@ test("escapeHtml sanitizes reserved characters", () => {
   assert.equal(output, "&lt;tag attr=&quot;x&quot;&gt;Tom &amp; Jerry&#39;s&lt;/tag&gt;");
 });
 
-test("buildPdfBundleMarkup includes one page per item", () => {
+test("buildPdfBundleMarkup includes a cover page and one page per item", () => {
   const markup = buildPdfBundleMarkup([
     {
       type: "Planning",
@@ -35,10 +35,16 @@ test("buildPdfBundleMarkup includes one page per item", () => {
     },
   ]);
 
-  const pageMatches = markup.match(/<section class="page">/g) || [];
-  assert.equal(pageMatches.length, 2);
+  const pageMatches = markup.match(/<section class="page/g) || [];
+  assert.equal(pageMatches.length, 3);
+  assert.match(markup, /Ways of Working/);
   assert.match(markup, /Story Points/);
   assert.match(markup, /Bike Shedding/);
+});
+
+test("buildPdfBundleMarkup renders a custom ways of working name", () => {
+  const markup = buildPdfBundleMarkup([], { waysOfWorkingName: "Platform Team Playbook" });
+  assert.match(markup, /Platform Team Playbook/);
 });
 
 test("openPdfBundle opens a writable tab and writes markup", () => {
@@ -83,12 +89,14 @@ test("openPdfBundle opens a writable tab and writes markup", () => {
     () => {
       throw new Error("alert should not be called when popup opens");
     },
+    { waysOfWorkingName: "Team Atlas Ways of Working" },
   );
 
   assert.equal(didOpen, true);
   assert.deepEqual(calls[0], ["open", "about:blank", "_blank"]);
   assert.equal(calls[1], "doc-open");
   assert.equal(calls[2][0], "doc-write");
+  assert.match(calls[2][1], /Team Atlas Ways of Working/);
   assert.match(calls[2][1], /Story Points/);
   assert.equal(calls[3], "doc-close");
   assert.equal(calls[4], "focus");
