@@ -1,5 +1,19 @@
 const catalogItems = [
   {
+    id: "change-advisory-board",
+    name: "Change Advisory Board",
+    type: "Governance",
+    description: "Structured review forum for assessing production-impacting changes.",
+    overview:
+      "A Change Advisory Board (CAB) is a cross-functional forum that reviews significant changes to production systems for risk, readiness, and timing.",
+    good:
+      "Improves risk visibility, aligns stakeholders on rollout plans, and helps teams coordinate communication for high-impact changes.",
+    bad:
+      "If every change requires CAB review, approval queues grow and teams slow down even when risk is low or well understood.",
+    ugly:
+      "Overly rigid CAB processes can become theater that delays delivery, encourages workaround behavior, and weakens ownership at team level."
+  },
+  {
     id: "story-points",
     name: "Story Points",
     type: "Planning",
@@ -210,5 +224,47 @@ const catalogItems = [
       "Overly brittle or duplicated tests create noise and maintenance burden, slowing teams without improving confidence proportionally.",
     ugly:
       "Large unstable test suites can block delivery, train teams to ignore failures, and let real defects slip into production anyway."
+  },
+  {
+    id: "behavior-driven-development",
+    name: "BDD",
+    type: "Patterns and Practices",
+    description: "Define behavior collaboratively with examples before building.",
+    overview:
+      "Behavior Driven Development aligns product, engineering, and quality around shared scenarios that describe expected system behavior.",
+    good:
+      "Improves shared understanding, reduces ambiguity in acceptance criteria, and creates stronger traceability from intent to automated checks.",
+    bad:
+      "If scenarios become verbose or disconnected from real user outcomes, teams maintain extra ceremony without gaining clarity.",
+    ugly:
+      "When BDD is treated as documentation theater, teams write brittle scripts, miss core behaviors, and still ship misunderstood features."
+  },
+  {
+    id: "test-driven-development",
+    name: "TDD",
+    type: "Patterns and Practices",
+    description: "Write a failing test first, then implement the minimum code.",
+    overview:
+      "Test Driven Development uses a red-green-refactor loop where tests drive design decisions and code evolves in small validated steps.",
+    good:
+      "Encourages better design boundaries, faster feedback, and safer refactoring by proving behavior continuously during implementation.",
+    bad:
+      "Teams new to TDD can overfocus on test mechanics, producing brittle tests that mirror implementation details instead of behavior.",
+    ugly:
+      "When rushed or misunderstood, TDD degrades into checkbox testing that adds drag, misses integration risk, and undermines trust in coverage."
+  },
+  {
+    id: "specification-by-example",
+    name: "Specification by Example",
+    type: "Patterns and Practices",
+    description: "Capture requirements as concrete examples of expected behavior.",
+    overview:
+      "Specification by Example turns requirements into concrete examples that become a shared reference for design, development, and testing.",
+    good:
+      "Builds common language across roles, exposes assumptions early, and helps teams validate outcomes against realistic examples.",
+    bad:
+      "Examples can become stale if they are not maintained alongside evolving product behavior and domain rules.",
+    ugly:
+      "Poorly chosen examples can create false confidence, hide edge cases, and drive teams toward narrow implementations that miss customer needs."
   }
 ];
