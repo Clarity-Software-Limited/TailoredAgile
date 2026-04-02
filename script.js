@@ -22,6 +22,10 @@ let showAntiPatterns = false;
 let waysOfWorkingName = "Ways of Working";
 let isEditingWaysOfWorkingName = false;
 
+function getItemTag(item) {
+  return item.antiPattern === true ? "Anti-Pattern" : item.type;
+}
+
 function getWaysOfWorkingName() {
   return waysOfWorkingName.trim() || "Ways of Working";
 }
@@ -114,7 +118,9 @@ function getVisibleItems() {
   const normalizedSearch = searchText.trim().toLowerCase();
 
   return catalogItems.filter((item) => {
-    const typeMatches = activeType === "All" || item.type === activeType;
+    const typeMatches = showAntiPatterns
+      ? true
+      : activeType === "All" || item.type === activeType;
     const nameMatches =
       normalizedSearch === "" || item.name.toLowerCase().includes(normalizedSearch);
     const antiPatternMatches = !showAntiPatterns || item.antiPattern === true;
@@ -133,7 +139,7 @@ function renderCatalog() {
     card.dataset.id = item.id;
     card.style.animationDelay = `${idx * 55}ms`;
     card.innerHTML = `
-      <span class="item-badge">${item.type}</span>
+      <span class="item-badge">${getItemTag(item)}</span>
       <h3 class="item-title">${item.name}</h3>
       <p class="item-desc">${item.description}</p>
       <div class="item-footer">
@@ -205,7 +211,7 @@ function renderCart() {
       row.innerHTML = `
         <div>
           <h4>${item.name}</h4>
-          <p>${item.type}</p>
+          <p>${getItemTag(item)}</p>
           <button class="remove-btn" data-remove="${item.id}">Remove</button>
         </div>
       `;

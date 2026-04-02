@@ -3,7 +3,8 @@ const catalogItems = [
     id: "change-advisory-board",
     name: "Change Advisory Board",
     type: "Governance",
-    description: "Structured review forum for assessing production-impacting changes.",
+    antiPattern: true,
+    description: "Approval-heavy gate that can slow safe, low-risk change delivery.",
     overview:
       "A Change Advisory Board (CAB) is a cross-functional forum that reviews significant changes to production systems for risk, readiness, and timing.",
     good:

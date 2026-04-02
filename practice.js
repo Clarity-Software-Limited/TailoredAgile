@@ -11,6 +11,10 @@ const sectionGood = document.getElementById("sectionGood");
 const sectionBad = document.getElementById("sectionBad");
 const sectionUgly = document.getElementById("sectionUgly");
 
+function getPracticeTag(item) {
+  return item.antiPattern === true ? "Anti-Pattern" : item.type;
+}
+
 if (!practice) {
   practiceType.textContent = "Not Found";
   practiceTitle.textContent = "Practice summary unavailable";
@@ -25,7 +29,7 @@ if (!practice) {
   sectionUgly.textContent =
     "This section will highlight severe failure modes and harmful outcomes.";
 } else {
-  practiceType.textContent = practice.type;
+  practiceType.textContent = getPracticeTag(practice);
   practiceTitle.textContent = practice.name;
   practiceDescription.textContent = practice.description;
   sectionOverview.textContent = practice.overview;

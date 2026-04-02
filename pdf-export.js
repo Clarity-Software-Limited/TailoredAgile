@@ -8,6 +8,10 @@
       .replaceAll("'", "&#39;");
   }
 
+  function getItemTag(item) {
+    return item.antiPattern === true ? "Anti-Pattern" : item.type;
+  }
+
   function buildPdfBundleMarkup(items, options = {}) {
     const waysOfWorkingName =
       typeof options.waysOfWorkingName === "string" && options.waysOfWorkingName.trim()
@@ -26,7 +30,7 @@
       .map(
         (item) => `
         <section class="page">
-          <p class="eyebrow">${escapeHtml(item.type)}</p>
+          <p class="eyebrow">${escapeHtml(getItemTag(item))}</p>
           <h1>${escapeHtml(item.name)}</h1>
           <p class="description">${escapeHtml(item.description)}</p>
           <div class="grid">
