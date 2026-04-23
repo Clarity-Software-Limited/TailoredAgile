@@ -29,6 +29,34 @@ const catalogItems = [
       "When leadership ties points directly to output quotas, teams inflate estimates, game metrics, and lose trust, resulting in poor planning and lower product quality."
   },
   {
+    id: "architecture-review-board",
+    name: "Architecture Review Board",
+    type: "Governance",
+    description: "Cross-team architectural oversight for significant design decisions.",
+    overview:
+      "An Architecture Review Board (ARB) is a group that evaluates high-impact architectural proposals to align decisions with enterprise standards, system constraints, and long-term maintainability.",
+    good:
+      "Helps teams surface design risk early, improves consistency across platforms, and creates shared visibility into major technical decisions.",
+    bad:
+      "If every design choice must pass through the board, teams can experience bottlenecks, slower delivery, and reduced local ownership.",
+    ugly:
+      "When the ARB becomes a top-down gate instead of a coaching forum, teams optimize for approval artifacts, delay learning, and ship less effective architectures."
+  },
+  {
+    id: "version-control",
+    name: "Version Control",
+    type: "Engineering",
+    description: "Track and manage code changes safely across teams and time.",
+    overview:
+      "Version control is the practice of recording and coordinating changes to source code so teams can collaborate, review work, and recover safely from mistakes.",
+    good:
+      "Enables collaboration at scale, supports traceability and code review, and makes rollback and incident response faster and more reliable.",
+    bad:
+      "Inconsistent branching, weak commit hygiene, or unclear ownership can create merge friction and reduce confidence in the code history.",
+    ugly:
+      "Without disciplined version control practices, teams lose auditability, overwrite each other’s work, and increase the risk of unstable or unrecoverable releases."
+  },
+  {
     id: "time-based-estimation",
     name: "Time Based Estimation",
     type: "Planning",
