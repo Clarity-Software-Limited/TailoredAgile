@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tailored Agile | Methodology Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#bec8cb",
+                    "tertiary": "#434343",
+                    "surface-container": "#f0ede9",
+                    "on-secondary-fixed-variant": "#7a2e29",
+                    "on-primary-fixed": "#001f25",
+                    "primary-fixed": "#a5eeff",
+                    "surface-container-high": "#ebe8e3",
+                    "inverse-on-surface": "#f3f0eb",
+                    "on-secondary-fixed": "#3f0204",
+                    "on-background": "#1c1c19",
+                    "primary-container": "#006473",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "tertiary-fixed": "#e5e2e1",
+                    "surface": "#fcf9f4",
+                    "inverse-primary": "#88d2e3",
+                    "surface-container-low": "#f6f3ee",
+                    "background": "#fcf9f4",
+                    "secondary-fixed": "#ffdad6",
+                    "on-primary-container": "#94deef",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fcf9f4",
+                    "surface-container-highest": "#e5e2dd",
+                    "primary-fixed-dim": "#88d2e3",
+                    "tertiary-container": "#5b5a5a",
+                    "on-tertiary-container": "#d4d2d1",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#1c1c19",
+                    "inverse-surface": "#31302d",
+                    "secondary": "#98443e",
+                    "surface-dim": "#dcdad5",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e5e2dd",
+                    "on-primary-fixed-variant": "#004e5a",
+                    "outline": "#6f797b",
+                    "secondary-container": "#f99188",
+                    "primary": "#004a56",
+                    "on-surface-variant": "#3f484b",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#0a6877",
+                    "secondary-fixed-dim": "#ffb3ac",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#732824",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c8c6c5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["IBM Plex Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fcf9f4]/80 backdrop-blur-xl shadow-[0_12px_32px_-4px_rgba(28,28,25,0.06)] bg-gradient-to-b from-[#fcf9f4] to-transparent">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1920px] mx-auto">
+<div class="font-['Space_Grotesk'] text-2xl font-black tracking-tighter text-[#004a56]">Tailored Agile</div>
+<div class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tighter font-bold uppercase text-sm">
+<a class="text-[#004a56]/60 hover:text-[#004a56] transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]" href="#">Certification</a>
+<a class="text-[#004a56]/60 hover:text-[#004a56] transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]" href="#">Collections</a>
+<a class="text-[#004a56] border-b-2 border-[#004a56] pb-1 hover:text-[#004a56] transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]" href="#">Ways of Working (3)</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#004a56] scale-95 duration-600 active:scale-95 transition-transform" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</nav>
+<div class="flex pt-24 min-h-screen">
+<!-- SideNavBar (Reduced width from w-72 to w-64) -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-24 bg-[#f6f3ee] no-border z-40 hidden lg:flex flex-col">
+<div class="flex flex-col gap-2 p-6">
+<div class="mb-6">
+<div class="font-['Space_Grotesk'] font-bold text-[#004a56] mb-1">Methodologies</div>
+<div class="font-['Inter'] text-xs font-medium tracking-wide text-[#004a56]/60 uppercase">Refine Practices</div>
+</div>
+<div class="relative mb-6">
+<input class="w-full bg-surface-container-lowest border-none border-b-2 border-outline-variant/15 focus:ring-0 focus:border-primary text-sm p-3 rounded-lg" placeholder="Search and Filter" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-outline text-sm" data-icon="search">search</span>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 p-3 font-['Inter'] text-sm font-medium tracking-wide bg-[#fcf9f4] text-[#004a56] font-bold rounded-l-xl shadow-[-4px_0_0_0_#004a56] transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="gavel">gavel</span>
+                        Governance
+                    </a>
+<a class="flex items-center gap-3 p-3 font-['Inter'] text-sm font-medium tracking-wide text-[#004a56]/50 hover:bg-[#fcf9f4]/50 hover:translate-x-1 transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="event_note">event_note</span>
+                        Planning
+                    </a>
+<a class="flex items-center gap-3 p-3 font-['Inter'] text-sm font-medium tracking-wide text-[#004a56]/50 hover:bg-[#fcf9f4]/50 hover:translate-x-1 transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="format_list_bulleted">format_list_bulleted</span>
+                        Backlog
+                    </a>
+<a class="flex items-center gap-3 p-3 font-['Inter'] text-sm font-medium tracking-wide text-[#004a56]/50 hover:bg-[#fcf9f4]/50 hover:translate-x-1 transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="play_circle">play_circle</span>
+                        Execution
+                    </a>
+<a class="flex items-center gap-3 p-3 font-['Inter'] text-sm font-medium tracking-wide text-[#004a56]/50 hover:bg-[#fcf9f4]/50 hover:translate-x-1 transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="verified">verified</span>
+                        Quality
+                    </a>
+</nav>
+<div class="mt-auto pt-10 space-y-1">
+<a class="flex items-center gap-3 p-3 font-['Inter'] text-sm font-medium tracking-wide text-[#004a56]/50 hover:bg-[#fcf9f4]/50 hover:translate-x-1 transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+<a class="flex items-center gap-3 p-3 font-['Inter'] text-sm font-medium tracking-wide text-[#004a56]/50 hover:bg-[#fcf9f4]/50 hover:translate-x-1 transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+                        Support
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area (Updated margins to match narrowed sidebars and grid-cols-3) -->
+<main class="flex-1 lg:ml-64 lg:mr-72 p-8 lg:p-10">
+<header class="mb-10">
+<h1 class="text-4xl lg:text-6xl font-black tracking-tighter text-primary mb-4">Methodologies<span class="text-secondary">&amp;</span> Practices</h1>
+<p class="text-md text-on-surface-variant max-w-2xl font-body leading-relaxed">Curate your unique agile environment by selecting proven architectural patterns and tactical workflows.</p>
+</header>
+<!-- Bento Grid of Cards (Updated to 3 columns on large screens) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] hover:translate-y-[-4px] hover:shadow-[0_12px_32px_-4px_rgba(28,28,25,0.06)] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-7xl" data-icon="architecture">architecture</span>
+</div>
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container font-mono text-[10px] uppercase tracking-widest rounded-full mb-4">Anti-Pattern</span>
+<h3 class="text-xl font-bold tracking-tight text-primary mb-3">Silent Planning</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">When decisions are made in isolation without stakeholder visibility, leading to delivery misalignment.</p>
+<button class="flex items-center gap-2 text-primary font-bold text-sm group/btn">
+<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg group-hover/btn:bg-primary-container transition-colors" data-icon="add">add</span>
+                        Add to Workspace
+                    </button>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] hover:translate-y-[-4px] hover:shadow-[0_12px_32px_-4px_rgba(28,28,25,0.06)]">
+<span class="inline-block px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant font-mono text-[10px] uppercase tracking-widest rounded-full mb-4">Planning</span>
+<h3 class="text-xl font-bold tracking-tight text-primary mb-3">Story Points</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Relative estimation technique using Fibonacci sequences to determine effort rather than absolute time.</p>
+<button class="flex items-center gap-2 text-primary font-bold text-sm group/btn">
+<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg group-hover/btn:bg-primary-container transition-colors" data-icon="add">add</span>
+                        Add to Workspace
+                    </button>
+</div>
+<!-- Card 4 (Reordered for better 3-col flow) -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] hover:translate-y-[-4px] hover:shadow-[0_12px_32px_-4px_rgba(28,28,25,0.06)]">
+<span class="inline-block px-3 py-1 bg-primary-fixed text-on-primary-fixed-variant font-mono text-[10px] uppercase tracking-widest rounded-full mb-4">Planning</span>
+<h3 class="text-xl font-bold tracking-tight text-primary mb-3">Critical Path Planning</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Identifying the longest sequence of dependent tasks to determine the shortest possible project duration.</p>
+<button class="flex items-center gap-2 text-primary font-bold text-sm group/btn">
+<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg group-hover/btn:bg-primary-container transition-colors" data-icon="add">add</span>
+                        Add to Workspace
+                    </button>
+</div>
+<!-- Card 3 (Now takes 2 columns in the 3-col layout for better balance) -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] hover:translate-y-[-4px] hover:shadow-[0_12px_32px_-4px_rgba(28,28,25,0.06)] xl:col-span-2 md:col-span-2">
+<div class="flex flex-col md:flex-row gap-8 items-start">
+<div class="flex-1">
+<span class="inline-block px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant font-mono text-[10px] uppercase tracking-widest rounded-full mb-4">Engineering</span>
+<h3 class="text-2xl font-bold tracking-tight text-primary mb-3">Continuous Deployment</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6 max-w-xl">Automatically releasing every code change that passes the automated testing stage directly to production, eliminating manual bottlenecks.</p>
+<button class="flex items-center gap-2 text-primary font-bold text-sm group/btn">
+<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg group-hover/btn:bg-primary-container transition-colors" data-icon="add">add</span>
+                                Add to Workspace
+                            </button>
+</div>
+<div class="w-full md:w-48 h-32 bg-surface-container-low rounded-xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+<img alt="clean lines of code on a dark monitor with purple and blue glowing accents in a professional developer setting" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB6eb9Z10oyoQ4jwiUoFQ3Te_VB_P38HZpYiYdgwIFxZOwJeK_oTGXEIlJBx1UdkczsYnV4q_spBYb_zN-8L2nBLIIyOj5r-RUc0WP8SEcEx_qDl9KfGL-xq_6GeOpGnY5LTv3fGUIQrdcbFrJD59ZYIbuwbBJyQNRKS3lNYpGN7FkJ1wtBVmxhBBiumVeD3V4ODMI1lymJigWcxTuhBg0i47QD6HxNW98OAMNYW8TkTLVktAHBZ2b84ezqj0o1pslzCaMkWdF7Q2p"/>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-surface-container-lowest p-6 rounded-xl transition-all duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] hover:translate-y-[-4px] hover:shadow-[0_12px_32px_-4px_rgba(28,28,25,0.06)]">
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container font-mono text-[10px] uppercase tracking-widest rounded-full mb-4">Quality</span>
+<h3 class="text-xl font-bold tracking-tight text-primary mb-3">Test-Driven Development</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">Writing automated tests before writing the functional code to ensure architectural integrity and bug prevention.</p>
+<button class="flex items-center gap-2 text-primary font-bold text-sm group/btn">
+<span class="material-symbols-outlined bg-primary text-on-primary p-2 rounded-lg group-hover/btn:bg-primary-container transition-colors" data-icon="add">add</span>
+                        Add to Workspace
+                    </button>
+</div>
+</div>
+</main>
+<!-- Right Sidebar (Workspace) (Reduced width from w-80 to w-72) -->
+<aside class="fixed right-0 top-0 pt-24 w-72 h-screen bg-surface-container-low hidden xl:flex flex-col">
+<div class="p-6 flex flex-col h-full">
+<div class="mb-8">
+<h2 class="text-lg font-black tracking-tight text-primary mb-1">Your Ways of Working</h2>
+<p class="text-[10px] font-mono text-on-surface-variant uppercase tracking-widest">Active Configuration</p>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-center p-6 bg-surface/50 rounded-xl border-2 border-dashed border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl text-outline-variant mb-4" data-icon="folder_off">folder_off</span>
+<p class="text-primary font-bold text-lg">0 items</p>
+<p class="text-on-surface-variant text-[11px] mt-2 leading-relaxed">Your custom agile methodology profile is currently empty. Start adding practices from the grid.</p>
+</div>
+<div class="mt-8 space-y-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold py-4 rounded-xl shadow-[0_12px_32px_-4px_rgba(0,74,86,0.2)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-600">
+                        Export to PDF
+                    </button>
+<p class="text-[10px] text-center text-on-surface-variant/60 font-mono">v2.4.0-release.agile</p>
+</div>
+</div>
+</aside>
+</div>
+<!-- Mobile Bottom Nav -->
+<nav class="fixed bottom-0 w-full bg-surface/80 backdrop-blur-xl md:hidden z-50 flex justify-around items-center p-4">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant/60">
+<span class="material-symbols-outlined" data-icon="collections_bookmark">collections_bookmark</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Vault</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant/60">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</button>
+</nav>
+</body></html>
