@@ -29,6 +29,21 @@ const catalogItems = [
       "When leadership ties points directly to output quotas, teams inflate estimates, game metrics, and lose trust, resulting in poor planning and lower product quality."
   },
   {
+    id: "story-points-org-metrics",
+    name: "Using Story Points for Organisation Wide Management Metrics",
+    type: "Governance",
+    antiPattern: true,
+    description: "Treating team estimation points as a cross-organisation performance metric.",
+    overview:
+      "This anti-pattern appears when leadership aggregates story points across teams to compare performance, set targets, or report organisational productivity.",
+    good:
+      "A shared view of delivery health is valuable when it uses context-rich measures focused on outcomes, flow, and customer impact.",
+    bad:
+      "Story points are local planning signals, so comparing totals across teams incentivises inflation, weakens estimation quality, and distorts planning behaviour.",
+    ugly:
+      "At scale, point-based management drives metric gaming, erodes trust, and disconnects leadership decisions from actual product value delivered."
+  },
+  {
     id: "architecture-review-board",
     name: "Architecture Review Board",
     type: "Governance",
