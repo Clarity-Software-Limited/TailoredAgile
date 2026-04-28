@@ -72,6 +72,21 @@ const catalogItems = [
       "Without disciplined version control practices, teams lose auditability, overwrite each other’s work, and increase the risk of unstable or unrecoverable releases."
   },
   {
+    id: "save-costs-by-giving-developers-slow-machines",
+    name: "Save Costs by Giving Developers Slow Machines",
+    type: "Engineering",
+    antiPattern: true,
+    description: "Cutting visible hardware spend while increasing hidden delivery costs.",
+    overview:
+      "This anti-pattern appears when organisations try to reduce costs by giving developers underpowered machines, slow build environments, or unreliable tooling.",
+    good:
+      "Cost discipline matters, and teams should make thoughtful equipment choices that fit the real demands of their work.",
+    bad:
+      "Slow machines turn everyday tasks into waiting time, interrupt focus, lengthen feedback loops, and make small changes feel expensive.",
+    ugly:
+      "At scale, the apparent savings are overwhelmed by lost developer time, delayed delivery, lower morale, and a culture that treats engineering flow as disposable."
+  },
+  {
     id: "time-based-estimation",
     name: "Time Based Estimation",
     type: "Planning",
