@@ -185,7 +185,8 @@ h1 {
 .cart-toggle,
 .add-btn,
 .checkout-btn,
-.collection-use {
+.collection-use,
+.video-tab {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -342,7 +343,8 @@ button.filter-btn,
 }
 
 button.filter-btn.active,
-.anti-patterns-filter.active {
+.anti-patterns-filter.active,
+.video-tab.active {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
   color: var(--on-primary);
   border-color: transparent;
@@ -663,16 +665,19 @@ button.filter-btn:focus-visible,
 }
 
 .collections-layout,
-.practice-layout {
+.practice-layout,
+.videos-layout {
   max-width: 980px;
   margin: 0 auto;
   padding: 1.2rem 1.1rem 2rem;
 }
 
 .collections-panel,
-.practice-panel {
+.practice-panel,
+.videos-panel {
   background: color-mix(in oklab, var(--surface-low), white 18%);
   padding: 1.25rem;
+  border-radius: var(--radius-xl);
 }
 
 .collections-grid,
@@ -727,6 +732,65 @@ button.filter-btn:focus-visible,
 
 .video-section {
   margin-top: 1rem;
+}
+
+.video-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.1rem;
+}
+
+.video-tab {
+  border: 1px solid var(--outline-variant);
+  background: var(--surface-card);
+  color: var(--on-surface);
+  padding: 0.48rem 0.72rem;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.video-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  opacity: 0;
+  transform: translateY(12px);
+  animation: rise-in 620ms var(--ease-luxe) forwards;
+  transition: transform 600ms var(--ease-luxe), box-shadow 600ms var(--ease-luxe);
+}
+
+.video-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--whisper);
+}
+
+.video-card-body {
+  padding: 1rem;
+}
+
+.video-card h2 {
+  margin-top: 0.55rem;
+  font-size: 1.35rem;
+}
+
+.video-card p {
+  margin: 0.45rem 0 0;
+  color: var(--on-surface-variant);
+}
+
+.video-card .video-meta {
+  color: var(--primary);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
 }
 
 .video-frame-wrap {
@@ -913,7 +977,8 @@ button.filter-btn:focus-visible,
 
   .layout,
   .collections-layout,
-  .practice-layout {
+  .practice-layout,
+  .videos-layout {
     padding-left: 0.9rem;
     padding-right: 0.9rem;
   }

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TailoredAgile | Videos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-b" aria-hidden="true"></div>
+
+    <main class="videos-layout">
+      <section class="videos-panel">
+        <a href="index.html" class="back-link">Back to Builder</a>
+        <p class="eyebrow">Videos</p>
+        <h1>Talks Worth Arguing With</h1>
+        <p class="section-lead">
+          A small library of software delivery talks grouped by theme.
+        </p>
+
+        <div id="videoTabs" class="video-tabs" aria-label="Video categories"></div>
+        <div id="videoGrid" class="video-grid"></div>
+        <p id="videoEmpty" class="catalog-empty" hidden>No videos in this category yet.</p>
+      </section>
+    </main>
+
+    <script src="videos-data.js?v=20260514"></script>
+    <script src="videos.js?v=20260514"></script>
+  </body>
+</html>
